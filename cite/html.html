@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moduł HTML - Samouczek INF.03</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Moduł HTML: Znaczniki w praktyce</h1>
+        <p>Szczegółowe zestawienie elementów, atrybutów i ich prawidłowego użycia</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">Strona Główna</a></li>
+            <li><a href="css.html">Moduł CSS</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>1. Struktura pliku HTML</h2>
+            <article>
+                <h3>Fundamenty dokumentu:</h3>
+                    
+                <ul>
+                    <li><strong>DOCTYPE:</strong><code>&lt;!DOCTYPE html&gt;</code>Deklaracja informująca przeglądarkę, że używamy najnowszego standardu HTML5.</li>
+                    <li><strong>Znacznik html:</strong><code>&lt;html&gt;</code>Główny kontener (korzeń) całej strony. Posiada atrybut definiujący język treści (np. "pl").<code>lang</code></li>
+                    <li><strong>Znacznik head:</strong><code>&lt;head&gt;</code>Sekcja "głowy", niewidoczna dla użytkownika. Zawiera metadane, tytuł strony i linki do stylów CSS.<code>&lt;meta&gt;<br>&lt;title&gt;<br>&lt;link&gt;</code></li>
+                    <li><strong>Znacznik body:</strong><code>&lt;body&gt;</code>Sekcja "ciała". Wszystko, co znajduje się wewnątrz, jest wyświetlane w oknie przeglądarki.</li>
+                    <li><strong>Do czego służą:</strong> Tworzą obowiązkowy, bazowy szkielet każdej strony internetowej.</li>
+                </ul>
+                <p>Przykład użycia:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Moja Strona&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    Treść widoczna dla użytkownika...
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </article>
+        </section>
+
+        <section>
+            <h2>2. Semantyka HTML5</h2>
+            <article>
+                <h3>Znaczniki semantyczne</h3>
+                <ul>
+                    <li><strong>Header:</strong><code>&lt;header&gt;</code>Nagłówek strony lub sekcji (zwykle zawiera logo, tytuł).</li>
+                    <li><strong>Nav:</strong><code>&lt;nav&gt;</code>Blok linków nawigacyjnych (główne menu).</li>
+                    <li><strong>Main:</strong><code>&lt;main&gt;</code>Główna, unikalna treść dokumentu. Na jednej stronie powinien być tylko jeden taki znacznik.</li>
+                    <li><strong>Article:</strong><code>&lt;article&gt;</code>Samowystarczalna, niezależna treść (np. post na blogu).</li>
+                    <li><strong>Section:</strong><code>&lt;section&gt;</code>Tematyczny rozdział dokumentu.</li>
+                    <li><strong>Aside</strong><code>&lt;aside&gt;</code>Treść poboczna (pasek boczny, reklamy, dodatkowe linki).</li>
+                    <li><strong>Footer</strong><code>&lt;footer&gt;</code>Stopka strony lub sekcji (prawa autorskie, kontakt).</li>
+                    <li><strong>Do czego służą:</strong> Zastępują ogólne znaczniki, nadając poszczególnym częściom strony czytelne znaczenie dla przeglądarek i czytników ekranu</li>
+                </ul>
+            </article>
+        </section>
+
+        <section>
+            <h2>3. Podstawowe formatowanie tekstu</h2>
+            <article>
+                <h3>Znaczniki nagłówków: <code>&lt;h1&gt;</code> do <code>&lt;h6&gt;</code></h3>
+                <ul>
+                    <li><strong>Do czego służą:</strong> Definiują hierarchię tytułów na stronie.</li>
+                    <li><strong>Treść:</strong> Krótki, zwięzły tekst tytułowy.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Znacznik akapitu: <code>&lt;p&gt;</code></h3>
+                <ul>
+                    <li><strong>Do czego służy:</strong> Oddziela bloki tekstu, tworząc paragrafy.</li>
+                    <li><strong>Jaka treść wewnątrz:</strong> Tekst ciągły, formatowanie liniowe.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section>
+            <h2>4. Nawigacja, Multimedia i Grafika</h2>
+            <article>
+                <h3>Hiperłącza i Kotwice: <code>&lt;a&gt;</code></h3>
+                <ul>
+                    <li><strong>Do czego służą:</strong> Tworzą odnośniki do innych podstron lub do konkretnych miejsc na tej samej stronie (tzw. kotwice).</li>
+                    <li><strong>Kotwice (Anchors):</strong> Aby przejść do konkretnego elementu na stronie, najpierw nadajemy mu atrybut <code>id="nazwa"</code>a w linku używamy znaku hash <code>href="#nazwa"</code>.</li>
+                </ul>
+                <p>Przykład użycia</p>
+<pre><code>&lt;a href="#sekcja-kontakt"&gt;Przejdź do kontaktu&lt;/a&gt;
+
+&lt;h2 id="sekcja-kontakt"&gt;Formularz kontaktowy&lt;/h2&gt;</code></pre>
+            </article>
+
+            <article>
+                <h3>Osadzanie Multimediów:</h3>
+                <p>Standard HTML5 pozwala na bardzo proste wprowadzanie wideo i dźwięku bez zewnętrznych wtyczek.</p>
+                
+                <p><strong>Pliki dźwiękowe <code>&lt;audio&gt;</code></strong>Najważniejszym atrybutem jest <code>controls</code>Bez niego odtwarzacz w ogóle nie pojawi się na stronie.<br><br>Wartość <code>src</code> wskazuje plik (np. .mp3).<br><br>Dodatkowo możemy użyć <code>autoplay<br>loop</code></p>
+                <p>Przykład użycia:</p>
+<pre><code>&lt;audio src="podcast.mp3" controls loop&gt;
+    Twoja przeglądarka nie obsługuje elementu audio.
+&lt;/audio&gt;</code></pre>
+
+                <p><strong>Pliki wideo <code>&lt;video&gt;</code></strong>Działa podobnie do audio, ale obsługuje obraz.<br><br>Poza <code>controls<br>src</code>przyjmuje atrybuty <code>width<br>height<br>poster</code></p>
+                <p>Przykład użycia:</p>
+<pre><code>&lt;video src="film.mp4" controls width="600" poster="miniatura.jpg"&gt;
+    Twoja przeglądarka nie obsługuje elementu video.
+&lt;/video&gt;</code></pre>
+
+                <p><strong>Pływająca ramka <code>&lt;iframe&gt;</code></strong>Służy do zagnieżdżania zewnętrznych stron w naszym dokumencie. Używana masowo do osadzania map z Google Maps lub odtwarzaczy YouTube.<br><br>Najważniejsze atrybuty to <code>src<br>width<br>height<br>title</code></p>
+                <p>Przykład użycia:</p>
+<pre><code>&lt;iframe src="https://www.youtube.com/embed/przyklad" width="560" height="315" title="Film instruktażowy" allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
+            </article>
+
+            <article>
+                <h3>Grafika wektorowa: <code>&lt;svg&gt;</code></h3>
+                <ul>
+                    <li><strong>Do czego służy:</strong> Skalowalna Grafika Wektorowa. Pozwala rysować kształty (linie, koła, prostokąty) bezpośrednio w kodzie HTML za pomocą matematyki. Dzięki temu grafika nie traci na jakości przy powiększaniu.</li>
+                    <li><strong>Jaka treść wewnątrz:</strong> Znaczniki rysujące<code>&lt;circle&gt;<br>&lt;rect&gt;<br>&lt;path&gt;</code></li>
+                </ul>
+                <p>Przykład użycia:</p>
+<pre><code>&lt;svg width="100" height="100"&gt;
+    &lt;circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" /&gt;
+&lt;/svg&gt;</code></pre>
+            </article>
+        </section>
+
+        <section>
+            <h2>5. Strukturyzacja danych</h2>
+            <article>
+                <h3>Listy definicji</h3>
+                <ul>
+                    <li><strong>Definition List</strong><code>&lt;dl&gt;</code>Kontener całej listy.</li>
+                    <li><strong>Definition Term</strong><code>&lt;dt&gt;</code>Pojęcie/termin, które definiujemy.</li>
+                    <li><strong>Definition Description</strong><code>&lt;dd&gt;</code>Właściwa definicja lub opis.</li>
+                    <li><strong>Do czego służą:</strong>Tworzą listy w formie słownika (pojęcie i jego wyjaśnienie). Zamiast zwykłych punktów mamy pary termin-definicja.</li>
+                </ul>
+                <p><strong>Przykład użycia:</strong></p>
+<pre><code>&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;Język znaczników używany do tworzenia struktury stron WWW.&lt;/dd&gt;
+    
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Kaskadowe arkusze stylów odpowiadające za wygląd strony.&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+            </article>
+
+            <article>
+                <h3>Listy:</h3>
+                <ul>
+                    <li><strong>Do czego służą:</strong> <code>&lt;ul&gt;</code>Tworzy listę wypunktowaną (kropki)<code>&lt;ol&gt;</code>Tworzy listę numerowaną (1, 2, 3...)<code>&lt;li&gt;</code>Pojedynczy element (pozycja) listy.</li>
+                    <li><strong>Kluczowe atrybuty:</strong> <code>type</code>(np. type="A" wymusi numerację literową), choć obecnie zaleca się sterowanie wyglądem przez CSS.</li>
+                    <li><strong>Wewnątrz:</strong><code>&lt;ul&gt;<br>&lt;ol&gt;</code> mogą znajdować się <strong>wyłącznie</strong> znaczniki <code>&lt;li&gt;</code>Wewnątrz <code>&lt;li&gt;</code> można umieszczać tekst, obrazki, a nawet kolejne listy (zagnieżdżanie).</li>
+                </ul>
+                <p>Przykład użycia:</p>
+<pre><code>&lt;ul&gt;
+    &lt;li&gt;Mleko&lt;/li&gt;
+    &lt;li&gt;Chleb&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            </article>
+        </section>
+
+        <section>
+    <h2>6. Formularze (Interakcja)</h2>
+
+    <article>
+        <h3>Kontener formularza: <code>&lt;form&gt;</code></h3>
+        <ul>
+            <li><strong>Do czego służy:</strong> Tworzy interfejs do zbierania danych od użytkownika. Stanowi nadrzędny kontener dla wszystkich pól, przycisków i etykiet.</li>
+            <li><strong>Kluczowe atrybuty:</strong>
+                <ul>
+                    <li><code>action</code>Adres skryptu lub pliku, do którego trafią dane po zatwierdzeniu.</li>
+                    <li><code>method</code>Sposób wysyłki: GET (dane w adresie URL) lub POST (dane ukryte w ciele zapytania).</li>
+                    <li><code>novalidate</code>Po dodaniu tego atrybutu (bez żadnej wartości), przeglądarka wyłącza swoją domyślną walidację (np. nie blokuje wysyłki, gdy pole z atrybutem "required" jest puste). Używane przy walidacji w JavaScript.</li>
+                </ul>
+            </li>
+        </ul>
+    </article>
+
+    <article>
+        <h3>Pole wejściowe i etykieta:</h3>
+        <ul>
+            <li><strong>Do czego służą:</strong> <code>&lt;input&gt;</code>Pozwala użytkownikowi wprowadzić dane<code>&lt;label&gt;</code>Opis powiązany z danym polem.</li>
+            <li><strong>Podstawowe atrybuty</strong> 
+                <code>type</code> (określa rodzaj pola, np. text, password, checkbox, radio, submit)<code>name</code>(nazwa zmiennej przekazywana do serwera)<code>id</code>(łączy pole z atrybutem <code>for</code> w etykiecie)</li>
+            <li><strong>Zaawansowane atrybuty</strong>
+                <ul>
+                    <li><code>autocomplete="on"|"off"</code>Określa, czy przeglądarka ma podpowiadać wartości wpisywane wcześniej w tym polu.</li>
+                    <li><code>readonly</code>Pole tylko do odczytu. Można je skopiować, a jego wartość <strong>jest</strong> wysyłana na serwer, ale nie da się w nim pisać.</li>
+                    <li><code>disabled</code>Całkowicie wyłącza pole. Jest wyszarzone, nie można go kliknąć, a jego wartość <strong>nie zostaje wysłana</strong> z formularzem.</li>
+                    <li><code>size="20"</code>Określa wizualną szerokość pola tekstowego w znakach.</li>
+                    <li><code>maxlength="50"</code>Ogranicza maksymalną liczbę znaków do wpisania.</li>
+                    <li><code>tabindex="1"</code>Ustala kolejność nawigacji klawiszem "Tab" (od najniższej do najwyższej).</li>
+                    <li><code>accesskey="s"</code>Tworzy skrót klawiszowy aktywujący element.</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Przykład użycia:</p>
+<pre><code>&lt;form action="zapisz.php" method="POST" novalidate&gt;
+    &lt;label for="login"&gt;Twój login:&lt;/label&gt;
+    &lt;input type="text" id="login" name="login" autocomplete="off" tabindex="1"&gt;
+
+    &lt;label for="kod_pocztowy"&gt;Kod pocztowy:&lt;/label&gt;
+    &lt;input type="text" id="kod_pocztowy" name="kod" maxlength="6" size="10" placeholder="00-000" tabindex="2"&gt;
+
+    &lt;input type="text" value="Zablokowane" readonly&gt;
+    &lt;input type="submit" value="Wyślij" accesskey="s" tabindex="3"&gt;
+&lt;/form&gt;</code></pre>
+    </article>
+
+    <article>
+        <h3>Wieloliniowe pole tekstowe: <code>&lt;textarea&gt;</code></h3>
+        <ul>
+            <li><strong>Do czego służy:</strong> Pozwala użytkownikowi wpisać dłuższą wiadomość (np. komentarz, treść e-maila).</li>
+            <li><strong>Ważne atrybuty:</strong> <code>rows</code>(liczba widocznych wierszy)<code>cols</code>(szerokość w znakach).</li>
+            <li><strong>Ważna różnica:</strong> Tekst domyślny nie jest umieszczany w atrybucie <code>value</code> (jak w input), ale bezpośrednio <strong>pomiędzy</strong> znacznikiem otwierającym a zamykającym.</li>
+        </ul>
+        <p>Przykład użycia:</p>
+<pre><code>&lt;label for="wiadomosc"&gt;Zostaw komentarz:&lt;/label&gt;
+&lt;textarea id="wiadomosc" name="wiadomosc" rows="4" cols="50"&gt;Wpisz tutaj swoją wiadomość...&lt;/textarea&gt;</code></pre>
+    </article>
+</section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Maja Borek. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+</body>
+</html>

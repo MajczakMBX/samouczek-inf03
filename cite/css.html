@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moduł CSS - Samouczek INF.03</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Moduł CSS: Style w praktyce</h1>
+        <p>Szczegółowe zestawienie selektorów, właściwości, układów strony, responsywności i animacji</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">Strona Główna</a></li>
+            <li><a href="html.html">Moduł HTML</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>1. Podstawy działania CSS</h2>
+            
+            <article>
+                <h3>Sposoby dołączania stylów</h3>
+                <ul>
+                    <li><strong>Zewnętrzny plik (Zalecany):</strong> Arkusz stylów w osobnym pliku, podłączony w <code>&lt;head&gt;</code> znacznikiem <code>&lt;link rel="stylesheet" href="style.css"&gt;</code>Standard na egzaminie INF.03.</li>
+                    <li><strong>Wewnętrzny arkusz:</strong> Style w sekcji <code>&lt;head&gt;</code> pomiędzy znacznikami <code>&lt;style&gt; ... &lt;/style&gt;</code>.</li>
+                    <li><strong>Styl liniowy:</strong> Dopisany do elementu za pomocą atrybutu <code>style=""</code>Używany w ostateczności.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Kaskadowość i Dziedziczenie</h3>
+                <ul>
+                    <li><strong>Kaskadowość:</strong> Określa, który styl wygra przy konflikcie reguł. Hierarchia ważności (od najsłabszego): Domyślne style przeglądarki &rarr; Arkusz zewnętrzny/wewnętrzny &rarr; Style liniowe &rarr; !important. Przy równej wadze wygrywa zapis podany najpóźniej w kodzie.</li>
+                    <li><strong>Dziedziczenie:</strong> Przekazywanie cech z rodzica na dzieci. Dziedziczone są m.in. właściwości tekstowe<code>color<br>font-family</code>NIE są dziedziczone: marginesy, obramowania, tła.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section>
+            <h2>2. Selektory i Pseudoklasy</h2>
+            
+            <article>
+                <h3>Wybieranie elementów (Proste)</h3>
+                <ul>
+                    <li><strong>Znacznika:</strong> Zapisywany nazwą tagu<code>p<br>h1</code></li>
+                    <li><strong>Klasy:</strong> Zapisywany z kropką<code>.przycisk</code>Można używać wielokrotnie.</li>
+                    <li><strong>Identyfikatora:</strong> Zapisywany z hashem<code>#naglowek-glowny</code>Unikalny, tylko raz na stronie.</li>
+                    <li><strong>Uniwersalny:</strong> Gwiazdka<code>*</code>Wybiera wszystkie elementy.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Selektory relacji: Potomek i Dziecko</h3>
+                <ul>
+                    <li><strong>Potomek: </strong>(Spacja np. A B) Wybiera wszystkie elementy <code>B</code> wewnątrz <code>A</code>Niezależnie od głębokości zagnieżdżenia (dzieci, wnuki itd.).</li>
+                    <li><strong>Dziecko: </strong> (Znak &gt; np. A &gt; B) Wybiera <strong>tylko</strong> bezpośrednie dzieci elementu <code>A</code>(Jeden poziom niżej).</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Pseudoklasy: <code>:hover<br>:nth-child()</code></h3>
+                <ul>
+                    <li><strong><code>:hover</code></strong>Stylizuje element, gdy najedzie na niego kursor myszy.</li>
+                    <li><strong><code>:nth-child(n)</code></strong>Wybiera element po jego kolejności w grupie.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section>
+            <h2>3. Typografia, Tekst i Kolory</h2>
+            <article>
+                <h3>Formatowanie i Dekoracja tekstu</h3>
+                <ul>
+                    <li><code>font-family</code>Rodzaj czcionki<code>Arial, sans-serif</code></li>
+                    <li><code>font-size</code>Wielkość tekstu.</li>
+                    <li><code>text-align</code>Wyrównanie<code>left<br>right<br>center<br>justify</code></li>
+                    <li><code>text-decoration</code>Dekoracja linii.<br><br>Wartość <code>none</code>Usuwa podkreślenie z linków.<code>underline</code>Dodaje podkreślenie.<code>line-through</code>Przekreśla tekst.</li>
+                    <li><code>text-transform</code>Zmienia tekst<code>uppercase</code>Wszystko wielkimi literami.</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Kolory i Tło</h3>
+                <ul>
+                    <li><code>color</code>Kolor tekstu<code>red<br>#ff0000<br>rgba(255,0,0,0.5)</code></li>
+                    <li><code>background-color</code>Kolor tła elementu.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section>
+            <h2>4. Model Pudełkowy i Wyświetlanie</h2>
+            <article>
+
+                <figure>
+                    <img src="../img/modelpudelkowy.png" alt="model pudełkowy css">
+                    <figcaption>Obraz ze <a href="https://geex.x-kom.pl/wiadomosci/model-pudelkowy-css-wprowadzenie/">strony</a></figcaption>
+                </figure>
+
+                <h3>Właściwość <code>display</code> (Typy elementów)</h3>
+                <ul>
+                    <li><strong>Blokowe:<code>block</code></strong>Zaczynają się od nowej linii, zajmują całą dostępną szerokość. Można im nadawać `width` i marginesy<code>&lt;div&gt;<br>&lt;p&gt;</code></li>
+                    <li><strong>Liniowe:<code>inline</code></strong>Układają się w tekście, zajmują tylko tyle miejsca co zawartość. Ignorują `width` i górne/dolne marginesy<code>&lt;span&gt;<br>&lt;a&gt;</code></li>
+                    <li><strong>Liniowo-blokowe:<code>inline-block</code></strong>Stoją w linii obok siebie, ale reagują na nadawanie wymiarów i marginesów.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Box Model:</h3>
+                <ul>
+                    <li><code>width/height</code>Szerokość i wysokość zawartości.</li>
+                    <li><code>padding</code>Dopełnienie <strong>wewnątrz</strong> (między tekstem a ramką).</li>
+                    <li><code>border</code>Ramka wokół elementu<code>1px solid black</code></li>
+                    <li><code>margin</code>Margines <strong>na zewnątrz</strong> (odstęp od innych bloków).</li>
+                </ul>
+                <p><strong>Ważne (box-sizing):</strong> Domyślnie padding i border powiększają szerokość elementu. Użycie <code>box-sizing: border-box;</code> sprawia, że są one wliczane do środka, a całkowita szerokość `width` pozostaje stała.</p>
+            </article>
+        </section>
+
+        <section>
+            <h2>5. Układy Stron (Layout) i Pozycjonowanie</h2>
+            
+            <article>
+                <h3>Opływanie: <code>float</code></h3>
+                <ul>
+                    <li><strong>Działanie:</strong> Wyrywa element z normalnego przepływu i spycha do krawędzi<code>left<br>right</code>Tekst oblewa go z drugiej strony.</li>
+                    <li><strong>Czyszczenie (Clear):</strong> Aby uniknąć rozpadu układu, na elemencie poniżej używa się <code>clear: both;</code></li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Pozycjonowanie: <code>position</code></h3>
+                <ul>
+                    <li><code>static</code>Domyślne, właściwości top/left nie działają.</li>
+                    <li><code>relative</code>Przesuwa element względem jego własnego, pierwotnego miejsca (zostawia tam pustą lukę).</li>
+                    <li><code>absolute</code>Wyjęty z układu, pozycjonowany względem najbliższego rodzica z position: relative.</li>
+                    <li><code>fixed</code>Przyklejony na stałe do okna przeglądarki (nie znika przy przewijaniu).</li>
+                    <li><code>sticky</code>Zachowuje się normalnie, ale przy przewijaniu przykleja się do wyznaczonej krawędzi (np. top: 0).</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Układ Elastyczny: Flexbox</h3>
+                <ul>
+                    <li><strong>Do czego służy:</strong> Jednowymiarowy układ w rzędzie lub kolumnie. Idealny do centrowania i nawigacji. Nadawany rodzicowi.</li>
+                    <li><strong>Kluczowe właściwości:</strong>
+                        <ul>
+                            <li><code>display: flex;</code>Aktywuje układ.</li>
+                            <li><code>flex-direction: row / column;</code>Kierunek.</li>
+                            <li><code>justify-content</code>Wyrównanie w osi głównej<code>center<br>space-between</code></li>
+                            <li><code>align-items</code>Wyrównanie w osi pomocniczej<code>center</code> w pionie</li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Układ Siatki: CSS Grid</h3>
+                <ul>
+                    <li><strong>Do czego służy:</strong> Dwuwymiarowa siatka dla całych stron (kolumny i wiersze jednocześnie).</li>
+                    <li><strong>Kluczowe właściwości:</strong> <code>display: grid;</code> oraz podział za pomocą <code>grid-template-columns: 200px 1fr 1fr;</code> (np. menu 200px i reszta na pół).<br><br>Odstępy ustawia się właściwością <code>gap</code></li>
+                </ul>
+            </article>
+        </section>
+
+        <section>
+            <h2>6. Tworzenie Nawigacji (Menu)</h2>
+            <article>
+                <p>Nawigację tworzymy na bazie listy <code>&lt;ul&gt;<br>&lt;li&gt;</code> wewnątrz tagu <code>&lt;nav&gt;</code></p>
+                
+                <h3>Menu Pionowe</h3>
+                <p>Usuwamy kropki z listy, <code>list-style-type: none;</code> a linkom nadajemy,<code>a<br>{<br>display: inline-block;<br>}</code>żeby były klikalne na całej szerokości.</p>
+                
+                <h3>Menu Poziome</h3>
+                <p>Najlepiej nadać<code>ul<br>{<br>display: flex;<br>}</code> Elementy z linkami ułożą się wtedy naturalnie obok siebie w jednym rzędzie.</p>
+            </article>
+        </section>
+
+        <section>
+            <h2>7. Responsywność strony (RWD)</h2>
+            <article>
+                <h3>Jak tworzyć Responsive Web Design</h3>
+                <ul>
+                    <li><strong>Viewport:</strong> Dodaj w HTML. <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></li>
+                    <li><strong>Elastyczność:</strong> Zamiast sztywnych wymiarów (px), używaj procentów<code>width: 100%<br>max-width: 1200px</code></li>
+                    <li><strong>Media Queries:</strong> Reguły wyłapujące wielkość ekranu, wstawiane na końcu pliku CSS.</li>
+                </ul>
+<pre><code>.kolumna { width: 100%; }
+
+@media screen and (min-width: 768px) {
+    .kolumna { width: 50%; float: left; }
+}</code></pre>
+            </article>
+        </section>
+
+        <section>
+            <h2>8. Animacje i Przejścia</h2>
+            
+            <article>
+                <h3>Płynne przejścia: <code>transition</code></h3>
+                <p>Dodawane do podstawowego elementu (nie do :hover), aby zmiana była płynna w obie strony.</p>
+<pre><code>.przycisk {
+    background-color: blue;
+    transition: background-color 0.3s ease; /* Co, ile czasu, jak płynnie */
+}
+.przycisk:hover { background-color: red; }</code></pre>
+            </article>
+
+            <article>
+                <h3>Złożone animacje: <code>animation<br>@keyframes</code></h3>
+                <p>Pozwalają na wieloetapowe animacje działające automatycznie.</p>
+<pre><code>@keyframes ruch {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100px); }
+}
+
+.element {
+    animation: ruch 2s linear infinite;
+}</code></pre>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Maja Borek. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+</body>
+</html>

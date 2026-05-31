@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Samouczek INF.03</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <style>
+            main{
+                display: flex;
+                flex-direction: row;
+                gap: 2%;
+            }
+            article{
+                flex-basis: 55%;
+                display: flex;
+                flex-direction: column;
+                justify-items: center;
+            }
+            aside{
+                flex-basis: 43%;
+            }
+            article p{
+                background: #ffe6f2;
+                padding: 10px;
+                border-radius: 10px;
+                margin: 15px 5px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <header>
+        <h1>Samouczek INF.03</h1>
+        <p>Twój przewodnik po tworzeniu stron internetowych</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="./cite/html.html">Moduł HTML</a></li>
+                <li><a href="./cite/css.html">Moduł CSS</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <article>
+                <h2>Po co powstała ta strona?</h2>
+                <p>
+                    Ten samouczek to kompleksowe narzędzie stworzone z myślą o uporządkowaniu wiedzy przed egzaminem zawodowym <strong>INF.03</strong>
+                     (Tworzenie i administrowanie stronami i aplikacjami internetowymi).
+                      Znajdziesz tu zbiór wszystkich najważniejszych zagadnień, które były omawiane na lekcjach w ciągu całego roku szkolnego.
+                </p>
+                <p>
+                    Zamiast szukać notatek w zeszytach czy rozproszonych plikach, masz przed sobą gotową ściągę. 
+                    Każdy dział zawiera teoretyczne wprowadzenie, przykłady kodu oraz wskazówki, jak używać poszczególnych znaczników i właściwości stylów w praktyce, 
+                    aby kod był zgodny ze standardami W3C i wymaganiami CKE.
+                </p>
+            </article>
+
+            <aside>
+                <h3>Szybkie wskazówki</h3>
+                <p>Pamiętaj, że na egzaminie punktowany jest nie tylko wygląd witryny, ale przede wszystkim czystość kodu. Zwróć uwagę na:</p>
+                <ul>
+                    <li>Semantykę HTML5 (używaj header, main, footer).</li>
+                    <li>Zamykanie wszystkich znaczników.</li>
+                    <li>Obowiązkowy atrybut <code>alt</code> przy obrazkach.</li>
+                    <li>Oddzielanie warstwy struktury (HTML) od warstwy wyglądu (CSS).</li>
+                </ul>
+            </aside>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Maja Borek. Samouczek INF.03. Wszelkie prawa zastrzeżone.</p>
+        </footer>
+    </body>
+</html>
